@@ -13,8 +13,7 @@ public class SpawnEnemy : MonoBehaviour
         {
             GameObject respawns = GameObject.FindGameObjectWithTag("EnemySpawnArea");
             float randX = Random.Range(-GetComponent<BoxCollider2D>().bounds.size.x / 2, GetComponent<BoxCollider2D>().bounds.size.x / 2);
-            float randY = transform.position.y + Random.Range(-GetComponent<BoxCollider2D>().bounds.size.y / 2, GetComponent<BoxCollider2D>().bounds.size.y / 2);
-            Vector2 spavnEnemyPosition = new Vector2(randX, randY);
+            Vector2 spavnEnemyPosition = new Vector2(randX, transform.position.y - GetComponent<BoxCollider2D>().bounds.size.y);
             Instantiate(enemyPrefab, spavnEnemyPosition, Quaternion.identity);
         }
     }
