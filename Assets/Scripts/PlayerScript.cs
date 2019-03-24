@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerScrip : MonoBehaviour
 {
-    public float speed = 500f;
+    public float speed = 80f;
     public Vector2 speedForce;
     public float torqueForce = -1f;
     public Vector2 movement;
