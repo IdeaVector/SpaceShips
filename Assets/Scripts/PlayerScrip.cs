@@ -5,14 +5,8 @@ using UnityEngine;
 public class PlayerScrip : MonoBehaviour
 {
     public float speed = 80f;
-    public Vector2 speedForce;
-    public float torqueForce = -1f;
-    public Vector2 movement;
+    public float torqueForce = 10f;
     public Rigidbody2D rb;
-    private int UpArrow = 1;
-    private int DownArrow;
-    private int RigthArrow;
-    private int LeftArrow;
     // Start is called before the first frame update
     void Start()
     {
