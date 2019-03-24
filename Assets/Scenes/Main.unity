@@ -153,8 +153,8 @@ GameObject:
   - component: {fileID: 854717750}
   - component: {fileID: 854717751}
   - component: {fileID: 854717752}
-  - component: {fileID: 854717754}
   - component: {fileID: 854717753}
+  - component: {fileID: 854717754}
   m_Layer: 0
   m_Name: SpaceStation
   m_TagString: Base
@@ -258,8 +258,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &854717754
-BoxCollider2D:
+--- !u!58 &854717754
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -271,19 +271,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
-    newSize: {x: 5.12, y: 5.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.029143898, y: 0.010250429}
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
-  m_EdgeRadius: 0
+  m_Radius: 1.7258669
 --- !u!1 &923079616
 GameObject:
   m_ObjectHideFlags: 0
