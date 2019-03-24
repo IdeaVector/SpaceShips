@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerScrip : MonoBehaviour
 {
-    public Vector2 speed = new Vector2(50, 50);
+    public float speed = 500f;
+    public Vector2 speedForce;
+    public float torqueForce = -1f;
     public Vector2 movement;
     public Rigidbody2D rb;
     private int UpArrow = 1;
@@ -20,15 +22,25 @@ public class PlayerScrip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float InputX = Input.GetAxis("Horizontal");
-        float InputY = Input.GetAxis("Vertical");
-        movement = new Vector2(
-            speed.x * InputX,
-            speed.y * InputY);
+       
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        rb.velocity = movement;
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            rb.AddForce(transform.up * speed);
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            rb.AddForce(transform.up * (-1) * speed);
+        }
+        rb.AddTorque( (-1) * Input.GetAxis("Horizontal") * torqueForce);
+    }
+
+    Vector2 ForwardVelocity()
+    {
+        return transform.up * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.up);
     }
 }
