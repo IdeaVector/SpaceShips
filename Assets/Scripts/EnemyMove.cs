@@ -28,4 +28,5 @@ public class EnemyMove : MonoBehaviour
 
         //transform.rotation = Quaternion.identity;
     }
+
 }

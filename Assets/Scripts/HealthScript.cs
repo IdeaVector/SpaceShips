@@ -30,10 +30,16 @@ public class HealthScript : MonoBehaviour
         print("Trigger");
         // Это выстрел?
         EnemyMove enemy = otherCollider.gameObject.GetComponent<EnemyMove>();
+        ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
         if (enemy != null)
         {
             Damage(enemy.damage);
             Destroy(enemy.gameObject);
+        }
+        if (shot != null)
+        {
+            Damage(shot.damage);
+            Destroy(shot.gameObject);
         }
     }
 }
