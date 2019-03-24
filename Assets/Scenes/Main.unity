@@ -167,8 +167,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854717749}
   m_LocalRotation: {x: -0, y: -0, z: 0.16828312, w: 0.98573875}
-  m_LocalPosition: {x: -3.16, y: -4.45, z: 0}
-  m_LocalScale: {x: 0.67164147, y: 0.66571414, z: 0.58978}
+  m_LocalPosition: {x: -3.02, y: -5.13, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 1694338266}
   m_RootOrder: 0
@@ -352,6 +352,8 @@ GameObject:
   - component: {fileID: 1164683321}
   - component: {fileID: 1164683323}
   - component: {fileID: 1164683322}
+  - component: {fileID: 1164683324}
+  - component: {fileID: 1164683325}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -368,7 +370,7 @@ Transform:
   m_GameObject: {fileID: 1164683320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1393301648}
   m_RootOrder: 0
@@ -494,6 +496,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1164683324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164683320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662b5b98fb8a3544cb7306365cbcb25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {x: 50, y: 50}
+  movement: {x: 0, y: 0}
+  rb: {fileID: 0}
+--- !u!50 &1164683325
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164683320}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1393301647
 GameObject:
   m_ObjectHideFlags: 0
