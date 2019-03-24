@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class MoveScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Vector2 speed = new Vector2(10, 10);
+
+    public Vector2 direction = new Vector2(0, 0);
+    public Rigidbody2D rb;
+    private Vector2 movement;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+ 
+        movement = new Vector2(
+          speed.x * direction.x,
+          speed.y * direction.y);
+    }
+
+    void FixedUpdate()
+    {
+        rb.velocity = movement;
     }
 }
