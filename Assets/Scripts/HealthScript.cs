@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class HealthScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        print("Started");
-    }
-
     /// <summary>
     /// Всего хитпоинтов
     /// </summary>
@@ -38,7 +32,6 @@ public class HealthScript : MonoBehaviour
         EnemyMove enemy = otherCollider.gameObject.GetComponent<EnemyMove>();
         if (enemy != null)
         {
-            print("Attacked");
             Damage(enemy.damage);
             Destroy(enemy.gameObject);
         }
