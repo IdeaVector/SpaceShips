@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 854717753}
   - component: {fileID: 854717754}
   - component: {fileID: 854717755}
+  - component: {fileID: 854717756}
   m_Layer: 0
   m_Name: SpaceStation
   m_TagString: Base
@@ -246,7 +247,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854717749}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -272,9 +273,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029143898, y: 0.010250429}
+  m_Offset: {x: 0.03968672, y: 0.0070019094}
   serializedVersion: 2
-  m_Radius: 1.7258669
+  m_Radius: 2.3773222
 --- !u!114 &854717755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +288,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2515d70775a254198c03be8158088c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &854717756
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854717749}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01971156, y: -0.0069313184}
+  serializedVersion: 2
+  m_Radius: 1.78687
 --- !u!1 &923079616
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +591,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662b5b98fb8a3544cb7306365cbcb25b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 80
+  torqueForce: 10
+  rb: {fileID: 0}
 --- !u!50 &1164683325
 Rigidbody2D:
   serializedVersion: 4
