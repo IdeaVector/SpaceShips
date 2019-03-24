@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1567313594268704343}
   - component: {fileID: 1567313594268704337}
   - component: {fileID: 5316235732437471757}
+  - component: {fileID: 1462260499055082950}
   m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -94,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa308539a4b0384f96310fb7f32f3b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smooth: 2
   damage: 1
 --- !u!50 &1567313594268704337
 Rigidbody2D:
@@ -228,3 +230,16 @@ PolygonCollider2D:
       - {x: 0, y: 1.405}
       - {x: 0.01, y: 1.395}
       - {x: 0, y: 1.395}
+--- !u!114 &1462260499055082950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567313594268704346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad9afe1af1af5a478551d159d0cb5c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1

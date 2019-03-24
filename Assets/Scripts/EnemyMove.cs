@@ -36,4 +36,5 @@ public class EnemyMove : MonoBehaviour
         Quaternion q = Quaternion.AngleAxis(angle + 90.0F, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
     }
+
 }
