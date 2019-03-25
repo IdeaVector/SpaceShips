@@ -6,7 +6,7 @@ using System;
 public class EnemyMove : MonoBehaviour
 {
     private Transform spaceBase;
-    private float speed = 2.0f;
+    public float speed;
     public float smooth = 2.0F;
     public  int damage = 1;
 

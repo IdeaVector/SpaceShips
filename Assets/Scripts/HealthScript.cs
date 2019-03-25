@@ -27,7 +27,6 @@ public class HealthScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        print("Trigger");
         // Это выстрел?
         EnemyMove enemy = otherCollider.gameObject.GetComponent<EnemyMove>();
         ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
