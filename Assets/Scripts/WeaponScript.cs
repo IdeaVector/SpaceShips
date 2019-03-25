@@ -45,7 +45,7 @@ public class WeaponScript : MonoBehaviour
             MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
             if (move != null)
             {
-                move.direction = this.transform.up; // в двухмерном пространстве это будет справа от спрайта
+                move.direction = -1 * this.transform.up; // в двухмерном пространстве это будет справа от спрайта
             }
         }
     }

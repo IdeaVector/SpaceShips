@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  isEnemy: 1
 --- !u!50 &7104751459158741237
 Rigidbody2D:
   serializedVersion: 4

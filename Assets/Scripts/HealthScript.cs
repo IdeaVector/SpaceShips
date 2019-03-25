@@ -8,7 +8,7 @@ public class HealthScript : MonoBehaviour
     /// Всего хитпоинтов
     /// </summary>
     public int hp;
-
+    public bool isEnemy = false;
     /// <summary>
     /// Наносим урон и проверяем должен ли объект быть уничтожен
     /// </summary>
@@ -28,17 +28,24 @@ public class HealthScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
         // Это выстрел?
-        EnemyMove enemy = otherCollider.gameObject.GetComponent<EnemyMove>();
-        ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
-        if (enemy != null)
+        if (!isEnemy)
         {
-            Damage(enemy.damage);
-            Destroy(enemy.gameObject);
+            EnemyMove enemy = otherCollider.gameObject.GetComponent<EnemyMove>();
+            if (enemy != null)
+            {
+                Damage(enemy.damage);
+                Destroy(enemy.gameObject);
+            }
         }
-        if (shot != null)
+        else
         {
-            Damage(shot.damage);
-            Destroy(shot.gameObject);
-        }
+            ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
+            if (shot != null && isEnemy != shot.isEnemyShot)
+            {
+                print("ATTACKED");
+                Damage(shot.damage);
+                Destroy(shot.gameObject);
+            }
+        }  
     }
 }
