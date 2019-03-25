@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthScript : MonoBehaviour
+public class BaseHealthScript : MonoBehaviour
 {
     /// <summary>
     /// Всего хитпоинтов
     /// </summary>
     public int hp;
-    public bool isEnemy = false;
     /// <summary>
     /// Наносим урон и проверяем должен ли объект быть уничтожен
     /// </summary>
@@ -27,13 +26,11 @@ public class HealthScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
-        if (shot != null && isEnemy != shot.isEnemyShot)
+        EnemyMove enemy = otherCollider.gameObject.GetComponent<EnemyMove>();
+        if (enemy != null)
         {
-            print("ATTACKED");
-            Damage(shot.damage);
-            Destroy(shot.gameObject);
+            Damage(enemy.damage);
+            Destroy(enemy.gameObject);
         }
-
     }
 }
