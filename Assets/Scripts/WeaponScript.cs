@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     public Transform shotPrefab;
-    public float shootingRate = 0.25f;
+    public float shootingRate = 0.1f;
     private float shootCooldown;
 
     void Start()

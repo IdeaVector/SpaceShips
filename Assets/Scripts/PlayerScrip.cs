@@ -6,11 +6,34 @@ public class PlayerScrip : MonoBehaviour
 {
     public float speed = 80f;
     public float torqueForce = 10f;
-    public Rigidbody2D rb;
+    public GameObject player;
+    private KeyCode shotButton;
+    private KeyCode UpButton;
+    private KeyCode DownButton;
+    private string horizontal;
+    private Rigidbody2D rb;
+    void Awake()
+    {
+       if (player.name == "Player1")
+        {
+            shotButton = KeyCode.Keypad5;
+            UpButton = KeyCode.UpArrow;
+            DownButton = KeyCode.DownArrow;
+            horizontal = "p1";
+        }
+        if (player.name == "Player2")
+        {
+            shotButton = KeyCode.G;
+            UpButton = KeyCode.W;
+            DownButton = KeyCode.S;
+            horizontal = "p2";
+        }
+
+    }
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = player.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -20,13 +43,13 @@ public class PlayerScrip : MonoBehaviour
        
 
             // 5 - Стрельба
-            bool shoot = Input.GetButtonDown("Fire1");
-            shoot |= Input.GetButtonDown("Fire2");
+            bool shoot = Input.GetKeyDown(shotButton);
+            //shoot |= Input.GetButtonDown("Fire2");
             // Замечание: Для пользователей Mac, Ctrl + стрелка - это плохая идея
 
             if (shoot)
             {
-                WeaponScript weapon = GetComponent<WeaponScript>();
+                WeaponScript weapon = player.GetComponent<WeaponScript>();
                 if (weapon != null)
                 {
                     // ложь, так как игрок не враг
@@ -37,20 +60,15 @@ public class PlayerScrip : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(UpButton))
         {
-            rb.AddForce(transform.up * speed);
+            rb.AddForce(player.transform.up * speed);
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(DownButton))
         {
-            rb.AddForce(transform.up * (-1) * speed);
+            rb.AddForce(player.transform.up * (-1) * speed);
         }
-        rb.AddTorque( (-1) * Input.GetAxis("Horizontal") * torqueForce);
-    }
-
-    Vector2 ForwardVelocity()
-    {
-        return transform.up * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.up);
+        rb.AddTorque( (-1) * Input.GetAxis(horizontal) * torqueForce);
     }
 }
