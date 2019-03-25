@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
-public class WeaponScript : MonoBehaviour
+public class DualWeaponScript : MonoBehaviour
 {
     public Transform shotPrefab;
     public float shootingRate = 0.25f;
@@ -22,7 +21,7 @@ public class WeaponScript : MonoBehaviour
             shootCooldown -= Time.deltaTime;
         }
     }
-    
+
     public void Attack(bool isEnemy)
     {
         if (CanAttack)
@@ -30,29 +29,34 @@ public class WeaponScript : MonoBehaviour
             shootCooldown = shootingRate;
 
             // Создайте новый выстрел
-            var shotTransform = Instantiate(shotPrefab) as Transform;
+            var shotTransformLeft = Instantiate(shotPrefab) as Transform;
+            var shotTransformRight = Instantiate(shotPrefab) as Transform;
 
             // Определите положение
-            shotTransform.position = transform.position;
-            shotTransform.rotation = transform.rotation;
+            shotTransformLeft.position = transform.position;
+            shotTransformRight.position = transform.position;
 
             // Свойство врага
-            ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
+            ShotScript shot = shotTransformLeft.gameObject.GetComponent<ShotScript>();
             if (shot != null)
             {
                 shot.isEnemyShot = isEnemy;
             }
 
             // Сделайте так, чтобы выстрел всегда был направлен на него
-            MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
-            if (move != null)
+            MoveScript moveLeft = shotTransformLeft.gameObject.GetComponent<MoveScript>();
+            MoveScript moveRight = shotTransformRight.gameObject.GetComponent<MoveScript>();
+            if (moveLeft != null && moveRight != null)
             {
                 int coef = 1;
                 if (!isShotUp)
                 {
                     coef *= -1;
                 }
-                move.direction = coef * this.transform.up; // в двухмерном пространстве это будет справа от спрайта
+                moveRight.direction = transform.up * coef;
+                moveRight.direction.x = -moveRight.direction.y;
+                moveLeft.direction = transform.up * coef;
+                moveLeft.direction.x = moveLeft.direction.y;
             }
         }
     }
