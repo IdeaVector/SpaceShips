@@ -10,6 +10,8 @@ public class PlayerScrip : MonoBehaviour
     private KeyCode shotButton;
     private KeyCode UpButton;
     private KeyCode DownButton;
+    private KeyCode LeftButton;
+    private KeyCode RigthButton;
     private string horizontal;
     // Start is called before the first frame update
     void Awake()
@@ -19,6 +21,8 @@ public class PlayerScrip : MonoBehaviour
             shotButton = KeyCode.Keypad5;
             UpButton = KeyCode.UpArrow;
             DownButton = KeyCode.DownArrow;
+            LeftButton = KeyCode.LeftArrow;
+            RigthButton = KeyCode.RightArrow;
             horizontal = "p1_horizontal";
         }
         else if (this.name == "Player2")
@@ -26,6 +30,8 @@ public class PlayerScrip : MonoBehaviour
             shotButton = KeyCode.G;
             UpButton = KeyCode.W;
             DownButton = KeyCode.S;
+            LeftButton = KeyCode.A;
+            RigthButton = KeyCode.D;
             horizontal = "p2_horizontal";
         }
 
@@ -62,7 +68,14 @@ public class PlayerScrip : MonoBehaviour
         {
             rb.AddForce(transform.up * (-1) * speed);
         }
-        rb.AddTorque( (-1) * Input.GetAxis(horizontal) * torqueForce);
+        if (Input.GetKey(LeftButton))
+        {
+            rb.AddTorque(torqueForce);
+        }
+        if (Input.GetKey(RigthButton))
+        {
+            rb.AddTorque(-1 * torqueForce);
+        }
     }
 
     Vector2 ForwardVelocity()
