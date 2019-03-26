@@ -21,16 +21,6 @@ public class EnemyMove : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, spaceBase.position, Time.deltaTime * speed);
-        /*
-        Vector3 dir = (spaceBase.position - transform.position).normalized;
-
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, (spaceBase.transform.position - transform.position), 2.0F, 0.0F);
-        transform.rotation = Quaternion.LookRotation(newDir);
-        ransform.rotation = Quaternion.Slerp(transform.rotation, spaceBase.position, Time.deltaTime * smooth);
-
-        transform.rotation = Quaternion.identity;
-        */
-
         Vector3 vectorToTarget = spaceBase.transform.position - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle + 90.0F, Vector3.forward);

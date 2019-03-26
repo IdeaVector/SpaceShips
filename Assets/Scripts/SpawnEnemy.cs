@@ -13,6 +13,7 @@ public class SpawnEnemy : MonoBehaviour
     public Text levelText;
     private int enemyCount;
     private delegate void Level();
+    private GameObject spawn = GameObject.FindGameObjectWithTag("EnemySpawnArea");
     Level currentLevel;
 
     // Start is called before the first frame update
@@ -44,7 +45,6 @@ public class SpawnEnemy : MonoBehaviour
 
     void Spawn(GameObject enemy)
     {
-        GameObject respawns = GameObject.FindGameObjectWithTag("EnemySpawnArea");
         float randX = Random.Range(-GetComponent<BoxCollider2D>().bounds.size.x / 2, GetComponent<BoxCollider2D>().bounds.size.x / 2);
         Vector2 spawnEnemyPosition = new Vector2(randX, transform.position.y - GetComponent<BoxCollider2D>().bounds.size.y);
         Instantiate(enemy, spawnEnemyPosition, Quaternion.identity);
