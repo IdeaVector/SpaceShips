@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject enemy1Prefab;
     public GameObject enemy2Prefab;
     public GameObject enemy3Prefab;
+    public Text levelText;
     private int enemyCount;
     private delegate void Level();
     Level currentLevel;
@@ -56,7 +58,8 @@ public class SpawnEnemy : MonoBehaviour
         {
             Spawn(enemyPrefab);
         }
-        
+
+        levelText.text = "Level №1";
         currentLevel = Level2;
     }
 
@@ -74,6 +77,7 @@ public class SpawnEnemy : MonoBehaviour
             Spawn(enemy1Prefab);
         }
 
+        levelText.text = "Level №2";
         currentLevel = Level3;
     }
 
@@ -96,6 +100,7 @@ public class SpawnEnemy : MonoBehaviour
             Spawn(enemy2Prefab);
         }
 
+        levelText.text = "Level №3";
         currentLevel = Level4;
     }
 
@@ -118,6 +123,7 @@ public class SpawnEnemy : MonoBehaviour
             Spawn(enemy3Prefab);
         }
 
+        levelText.text = "Level №4";
         currentLevel = Win;
     }
 
