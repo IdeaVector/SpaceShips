@@ -6,15 +6,18 @@ public class ShotScript : MonoBehaviour
 {
     public int damage = 1;
     public bool isEnemyShot = false;
+    public bool isPlayer1;
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 3);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isPlayer1)
+           print("HUI");
     }
 }

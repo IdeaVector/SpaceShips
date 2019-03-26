@@ -8,6 +8,7 @@ public class WeaponScript : MonoBehaviour
     public Transform shotPrefab;
     public float shootingRate = 0.25f;
     public bool isShotUp = true;
+    public bool isPlayer1; 
     private float shootCooldown;
 
     void Start()
@@ -29,21 +30,18 @@ public class WeaponScript : MonoBehaviour
         {
             shootCooldown = shootingRate;
 
-            // Создайте новый выстрел
             var shotTransform = Instantiate(shotPrefab) as Transform;
 
-            // Определите положение
             shotTransform.position = transform.position;
             shotTransform.rotation = transform.rotation;
 
-            // Свойство врага
             ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
             if (shot != null)
             {
                 shot.isEnemyShot = isEnemy;
+                shot.isPlayer1 = isPlayer1;
             }
-
-            // Сделайте так, чтобы выстрел всегда был направлен на него
+            
             MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
             if (move != null)
             {
@@ -52,7 +50,7 @@ public class WeaponScript : MonoBehaviour
                 {
                     coef *= -1;
                 }
-                move.direction = coef * this.transform.up; // в двухмерном пространстве это будет справа от спрайта
+                move.direction = coef * this.transform.up;
             }
         }
     }

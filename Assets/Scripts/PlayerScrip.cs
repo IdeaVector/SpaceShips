@@ -13,6 +13,7 @@ public class PlayerScrip : MonoBehaviour
     private KeyCode LeftButton;
     private KeyCode RigthButton;
     private string horizontal;
+    private bool isPlayer1;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +25,7 @@ public class PlayerScrip : MonoBehaviour
             LeftButton = KeyCode.LeftArrow;
             RigthButton = KeyCode.RightArrow;
             horizontal = "p1_horizontal";
+            isPlayer1 = true;
         }
         else if (this.name == "Player2")
         {
@@ -33,6 +35,7 @@ public class PlayerScrip : MonoBehaviour
             LeftButton = KeyCode.A;
             RigthButton = KeyCode.D;
             horizontal = "p2_horizontal";
+            isPlayer1 = false;
         }
 
     }
@@ -51,7 +54,8 @@ public class PlayerScrip : MonoBehaviour
                 WeaponScript weapon = GetComponent<WeaponScript>();
                 if (weapon != null)
                 {
-                    // ложь, так как игрок не враг
+                    weapon.isPlayer1 = isPlayer1;   
+                // ложь, так как игрок не враг
                     weapon.Attack(false);
                 }
             }
