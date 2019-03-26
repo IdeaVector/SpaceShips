@@ -6,9 +6,9 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     public Transform shotPrefab;
-    public float shootingRate = 0.1f;
-    private float shootCooldown;
+    public float shootingRate = 0.25f;
     public bool isShotUp = true;
+    private float shootCooldown;
 
     void Start()
     {
@@ -34,6 +34,7 @@ public class WeaponScript : MonoBehaviour
 
             // Определите положение
             shotTransform.position = transform.position;
+            shotTransform.rotation = transform.rotation;
 
             // Свойство врага
             ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
@@ -46,11 +47,12 @@ public class WeaponScript : MonoBehaviour
             MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
             if (move != null)
             {
-                move.direction = this.transform.up; // в двухмерном пространстве это будет справа от спрайта
+                int coef = 1;
                 if (!isShotUp)
                 {
-                    move.direction = move.direction * (-1);
+                    coef *= -1;
                 }
+                move.direction = coef * this.transform.up; // в двухмерном пространстве это будет справа от спрайта
             }
         }
     }
