@@ -11,7 +11,11 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject enemy2Prefab;
     public GameObject enemy3Prefab;
     public Text levelText;
+    public Text player1ScoreText;
+    public Text player2ScoreText;
     private int enemyCount;
+    private int player1Score = 0;
+    private int player2Score = 0;
     private delegate void Level();
     private GameObject spawn = GameObject.FindGameObjectWithTag("EnemySpawnArea");
     Level currentLevel;
@@ -36,6 +40,20 @@ public class SpawnEnemy : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void giveScore(bool toPlayer1, int score)
+    {
+        if (toPlayer1)
+        {
+            player1Score += score;
+            player1ScoreText.text = player1Score.ToString();
+        }
+        else
+        {
+            player2Score += score;
+            player2ScoreText.text = player2Score.ToString();
+        }
     }
 
     void NextLevel()

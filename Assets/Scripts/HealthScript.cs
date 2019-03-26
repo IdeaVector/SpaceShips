@@ -14,13 +14,18 @@ public class HealthScript : MonoBehaviour
     /// </summary>
     /// <param name="damageCount"></param>
 
-    public void Damage(int damageCount)
+    public void Damage(int damageCount, bool isFromPlayer1 = true)
     {
         hp -= damageCount;
 
         if (hp <= 0)
         {
             // Смерть!
+            if (isEnemy)
+            {
+                EnemyDestroyScript script = GetComponent<EnemyDestroyScript>();
+                script.setFromPlayer1(isFromPlayer1);
+            }
             Destroy(gameObject);
         }
     }
@@ -30,7 +35,7 @@ public class HealthScript : MonoBehaviour
         ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
         if (shot != null && isEnemy != shot.isEnemyShot)
         {
-            Damage(shot.damage);
+            Damage(shot.damage, shot.isPlayer1);
             Destroy(shot.gameObject);
         }
 
