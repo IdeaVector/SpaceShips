@@ -7,6 +7,7 @@ public class MenuScript : MonoBehaviour
 {
   public void OnClick()
     {
+        print("hui");
         SceneManager.LoadScene("Main");
     }
 }

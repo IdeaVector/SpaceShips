@@ -8,6 +8,7 @@ public class WeaponScript : MonoBehaviour
     public Transform shotPrefab;
     public float shootingRate = 0.1f;
     private float shootCooldown;
+    public bool isShotUp = true;
 
     void Start()
     {
@@ -46,6 +47,10 @@ public class WeaponScript : MonoBehaviour
             if (move != null)
             {
                 move.direction = this.transform.up; // в двухмерном пространстве это будет справа от спрайта
+                if (!isShotUp)
+                {
+                    move.direction = move.direction * (-1);
+                }
             }
         }
     }
