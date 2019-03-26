@@ -16,7 +16,6 @@ public class PlayerScrip : MonoBehaviour
     {
         if (this.name == "Player1")
         {
-            print("PIZDA");
             shotButton = KeyCode.Keypad5;
             UpButton = KeyCode.UpArrow;
             DownButton = KeyCode.DownArrow;
@@ -24,7 +23,6 @@ public class PlayerScrip : MonoBehaviour
         }
         else if (this.name == "Player2")
         {
-            print("HUI");
             shotButton = KeyCode.G;
             UpButton = KeyCode.W;
             DownButton = KeyCode.S;
