@@ -7,7 +7,31 @@ public class PlayerScrip : MonoBehaviour
     public float speed = 80f;
     public float torqueForce = 10f;
     public Rigidbody2D rb;
+    private KeyCode shotButton;
+    private KeyCode UpButton;
+    private KeyCode DownButton;
+    private string horizontal;
     // Start is called before the first frame update
+    void Awake()
+    {
+        if (this.name == "Player1")
+        {
+            print("PIZDA");
+            shotButton = KeyCode.Keypad5;
+            UpButton = KeyCode.UpArrow;
+            DownButton = KeyCode.DownArrow;
+            horizontal = "p1_horizontal";
+        }
+        else if (this.name == "Player2")
+        {
+            print("HUI");
+            shotButton = KeyCode.G;
+            UpButton = KeyCode.W;
+            DownButton = KeyCode.S;
+            horizontal = "p2_horizontal";
+        }
+
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,13 +40,7 @@ public class PlayerScrip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-       
-
-            // 5 - Стрельба
-            bool shoot = Input.GetButtonDown("Fire1");
-            shoot |= Input.GetButtonDown("Fire2");
-            // Замечание: Для пользователей Mac, Ctrl + стрелка - это плохая идея
+            bool shoot = Input.GetKeyDown(shotButton);
 
             if (shoot)
             {
@@ -37,16 +55,16 @@ public class PlayerScrip : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(UpButton))
         {
             rb.AddForce(transform.up * speed);
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(DownButton))
         {
             rb.AddForce(transform.up * (-1) * speed);
         }
-        rb.AddTorque( (-1) * Input.GetAxis("Horizontal") * torqueForce);
+        rb.AddTorque( (-1) * Input.GetAxis(horizontal) * torqueForce);
     }
 
     Vector2 ForwardVelocity()
