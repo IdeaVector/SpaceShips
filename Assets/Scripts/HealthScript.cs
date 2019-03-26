@@ -30,7 +30,6 @@ public class HealthScript : MonoBehaviour
         ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
         if (shot != null && isEnemy != shot.isEnemyShot)
         {
-            print("ATTACKED");
             Damage(shot.damage);
             Destroy(shot.gameObject);
         }

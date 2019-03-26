@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3224952581380279427}
   - component: {fileID: 7260690777158853859}
   - component: {fileID: 5723854502551941396}
+  - component: {fileID: 5707913379745615068}
   - component: {fileID: 2794306494446837749}
   - component: {fileID: 1945923197449365711}
   m_Layer: 0
@@ -112,6 +113,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   isEnemy: 1
+--- !u!114 &5707913379745615068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3692946389157140755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031c693ad328f704680fa514611e3012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &2794306494446837749
 PolygonCollider2D:
   m_ObjectHideFlags: 0
