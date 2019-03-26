@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 655001505}
   - component: {fileID: 655001504}
   - component: {fileID: 655001503}
+  - component: {fileID: 655001507}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -612,6 +613,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &655001507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655001501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d947cf0976e3b8e48a208830c681308a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotPrefab: {fileID: 2733323136235141772, guid: 149fe30ab77b51640b6e5f97ea1e4887,
+    type: 3}
+  shootingRate: 0.25
+  isShotUp: 1
 --- !u!1 &720092239
 GameObject:
   m_ObjectHideFlags: 0
