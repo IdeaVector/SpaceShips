@@ -1,17 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseHealthScript : MonoBehaviour
 {
-    /// <summary>
-    /// Всего хитпоинтов
-    /// </summary>
+    public Image bar;
+    public Text health;
     public int hp;
-    /// <summary>
-    /// Наносим урон и проверяем должен ли объект быть уничтожен
-    /// </summary>
-    /// <param name="damageCount"></param>
+    private int maxHp;
+
+    private void Start()
+    {
+        maxHp = hp;
+        UpdateHealth();
+    }
+
+    void UpdateHealth()
+    {
+        if (hp >= 0)
+        {
+            health.text = hp.ToString();
+            bar.transform.localScale = new Vector3((float)hp / (float)maxHp, 1, 1);
+        }
+        else
+        {
+            health.text = "0";
+        }
+        
+    }
 
     public void Damage(int damageCount)
     {
@@ -22,6 +39,7 @@ public class BaseHealthScript : MonoBehaviour
             // Смерть!
             Destroy(gameObject);
         }
+        UpdateHealth();
     }
 
     void OnTriggerEnter2D(Collider2D otherCollider)
