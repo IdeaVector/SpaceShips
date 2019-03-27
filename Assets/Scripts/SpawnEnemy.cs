@@ -63,11 +63,25 @@ public class SpawnEnemy : MonoBehaviour
 
     void Spawn(GameObject enemy)
     {
-        float randX = Random.Range(-GetComponent<BoxCollider2D>().bounds.size.x / 2, GetComponent<BoxCollider2D>().bounds.size.x / 2);
-        Vector2 spawnEnemyPosition = new Vector2(randX, transform.position.y - GetComponent<BoxCollider2D>().bounds.size.y);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log(enemies.Length);
+        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        Vector2 spawnEnemyPosition = new Vector2();
+        bool flag = false;
+        while (flag == false)
+        {
+            float randX = Random.Range(-GetComponent<BoxCollider2D>().bounds.size.x / 2, GetComponent<BoxCollider2D>().bounds.size.x / 2);
+            spawnEnemyPosition  = new Vector2(randX, transform.position.y - GetComponent<BoxCollider2D>().bounds.size.y);
+            flag = true;
+            foreach (GameObject cr_enemy in enemies)
+            {
+                if ((spawnEnemyPosition.x - cr_enemy.transform.position.x < enemy.GetComponent<PolygonCollider2D>().bounds.size.x) || (spawnEnemyPosition.y - cr_enemy.transform.position.y < enemy.GetComponent<PolygonCollider2D>().bounds.size.x))
+                    flag = false;
+            }
+        }
         Instantiate(enemy, spawnEnemyPosition, Quaternion.identity);
+        Debug.Log("spawn");
     }
-
     void Level1()
     {
         enemyCount = 2;
