@@ -9,6 +9,7 @@ public class HealthScript : MonoBehaviour
     /// </summary>
     public int hp;
     public bool isEnemy = false;
+    public Sprite hpSprite = null;
     /// <summary>
     /// Наносим урон и проверяем должен ли объект быть уничтожен
     /// </summary>
