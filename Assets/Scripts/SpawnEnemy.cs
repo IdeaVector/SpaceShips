@@ -161,6 +161,6 @@ public class SpawnEnemy : MonoBehaviour
 
     void Win()
     {
-        SceneManager.LoadScene("Victory");
+        SceneManager.LoadScene("EndGame");
     }
 }
