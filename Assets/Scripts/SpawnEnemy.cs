@@ -147,6 +147,6 @@ public class SpawnEnemy : MonoBehaviour
 
     void Win()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Victory");
     }
 }

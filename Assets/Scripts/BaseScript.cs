@@ -11,6 +11,6 @@ public class BaseScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Defeate");
     }
 }
