@@ -163,10 +163,10 @@ public class SpawnEnemy : MonoBehaviour
         }
 
         levelText.text = "Level №4";
-        currentLevel = Win;
+        currentLevel = GameOver;
     }
 
-    void Win()
+    public void GameOver()
     {
         PlayerPrefs.SetInt("level", levelScore-1);
         SceneManager.LoadScene("EndGame");
