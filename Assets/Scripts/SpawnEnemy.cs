@@ -14,6 +14,7 @@ public class SpawnEnemy : MonoBehaviour
     public Text player1ScoreText;
     public Text player2ScoreText;
     private int enemyCount;
+    private int levelScore = 0;
     private int player1Score = 0;
     private int player2Score = 0;
     private delegate void Level();
@@ -25,12 +26,16 @@ public class SpawnEnemy : MonoBehaviour
     {
         currentLevel = Level1;
         NextLevel();
+        giveScore(true, 0);
+        giveScore(false, 0);
     }
 
     public void Defeated()
     {
+        GameObject spaceBase = GameObject.FindGameObjectWithTag("Base");
+        BaseHealthScript baseHealth = spaceBase.GetComponent<BaseHealthScript>();
         enemyCount--;
-        if (enemyCount <= 0)
+        if (enemyCount <= 0 && baseHealth.hp > 0)
         {
             NextLevel();
         }
@@ -48,16 +53,20 @@ public class SpawnEnemy : MonoBehaviour
         {
             player1Score += score;
             player1ScoreText.text = player1Score.ToString();
+            PlayerPrefs.SetInt("player1", player1Score);
         }
         else
         {
             player2Score += score;
             player2ScoreText.text = player2Score.ToString();
+            PlayerPrefs.SetInt("player2", player2Score);
         }
     }
 
     void NextLevel()
     {
+        levelScore++;
+        PlayerPrefs.SetInt("level", levelScore);
         currentLevel();
     }
 
@@ -79,7 +88,6 @@ public class SpawnEnemy : MonoBehaviour
             }
         }
         Instantiate(enemy, spawnEnemyPosition, Quaternion.identity);
-        Debug.Log("spawn");
     }
     void Level1()
     {
@@ -160,6 +168,7 @@ public class SpawnEnemy : MonoBehaviour
 
     void Win()
     {
+        PlayerPrefs.SetInt("level", levelScore-1);
         SceneManager.LoadScene("EndGame");
     }
 }

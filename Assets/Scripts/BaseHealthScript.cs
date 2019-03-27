@@ -36,9 +36,10 @@ public class BaseHealthScript : MonoBehaviour
 
         if (hp <= 0)
         {
-            // Смерть!
-            Destroy(gameObject);
+            BaseScript script = GetComponent<BaseScript>();
+            script.GameOver();
         }
+
         UpdateHealth();
     }
 

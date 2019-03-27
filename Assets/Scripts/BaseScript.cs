@@ -9,7 +9,7 @@ public class BaseScript : MonoBehaviour
     {
     }
 
-    private void OnDestroy()
+    public void GameOver()
     {
         SceneManager.LoadScene("EndGame");
     }
