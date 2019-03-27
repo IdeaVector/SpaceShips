@@ -706,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d947cf0976e3b8e48a208830c681308a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 2733323136235141772, guid: 149fe30ab77b51640b6e5f97ea1e4887,
+  shotPrefab: {fileID: 5665506919795241493, guid: ee9d7f6d340946346be91e678f4b6967,
     type: 3}
   shootingRate: 0.25
   isShotUp: 1
@@ -1636,11 +1636,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d947cf0976e3b8e48a208830c681308a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 2733323136235141772, guid: 149fe30ab77b51640b6e5f97ea1e4887,
+  shotPrefab: {fileID: 5665506919795241493, guid: ee9d7f6d340946346be91e678f4b6967,
     type: 3}
   shootingRate: 0.25
   isShotUp: 1
-  isPlayer1: 0
+  isPlayer1: 1
 --- !u!114 &1164683327
 MonoBehaviour:
   m_ObjectHideFlags: 0
