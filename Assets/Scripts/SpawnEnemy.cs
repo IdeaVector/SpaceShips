@@ -64,7 +64,6 @@ public class SpawnEnemy : MonoBehaviour
     void Spawn(GameObject enemy)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies.Length);
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         Vector2 spawnEnemyPosition = new Vector2();
         bool flag = false;
@@ -75,7 +74,7 @@ public class SpawnEnemy : MonoBehaviour
             flag = true;
             foreach (GameObject cr_enemy in enemies)
             {
-                if ((spawnEnemyPosition.x - cr_enemy.transform.position.x < enemy.GetComponent<PolygonCollider2D>().bounds.size.x) || (spawnEnemyPosition.y - cr_enemy.transform.position.y < enemy.GetComponent<PolygonCollider2D>().bounds.size.x))
+                if ((Mathf.Abs(spawnEnemyPosition.x - cr_enemy.transform.position.x) < 2 * enemy.GetComponent<PolygonCollider2D>().bounds.size.x) || (Mathf.Abs(spawnEnemyPosition.y - cr_enemy.transform.position.y) < 2 * enemy.GetComponent<PolygonCollider2D>().bounds.size.x))
                     flag = false;
             }
         }
