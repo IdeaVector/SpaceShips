@@ -9,15 +9,31 @@ public class HealthScript : MonoBehaviour
     /// </summary>
     public int hp;
     public bool isEnemy = false;
-    public Sprite hpSprite = null;
+    public GameObject hpSprite = null;
+    private int maxHp;
     /// <summary>
     /// Наносим урон и проверяем должен ли объект быть уничтожен
     /// </summary>
     /// <param name="damageCount"></param>
 
+    private void Start()
+    {
+        maxHp = hp;
+        UpdateHp();
+    }
+
+    private void UpdateHp()
+    {
+        if (hpSprite != null)
+        {
+            hpSprite.transform.localScale = new Vector3((float)hp / (float)maxHp, 1, 1);
+        }      
+    }
+
     public void Damage(int damageCount, bool isFromPlayer1 = true)
     {
         hp -= damageCount;
+        UpdateHp();
 
         if (hp <= 0)
         {
