@@ -52,4 +52,10 @@ public class BaseHealthScript : MonoBehaviour
             Destroy(enemy.gameObject);
         }
     }
+
+    public void regen()
+    {
+        hp = maxHp;
+        UpdateHealth();
+    }
 }

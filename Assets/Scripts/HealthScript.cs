@@ -57,4 +57,10 @@ public class HealthScript : MonoBehaviour
         }
 
     }
+
+    public void regen()
+    {
+        hp = maxHp;
+        UpdateHp();
+    }
 }
