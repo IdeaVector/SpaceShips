@@ -1309,6 +1309,7 @@ MonoBehaviour:
   levelText: {fileID: 1462351258}
   player1ScoreText: {fileID: 396419314}
   player2ScoreText: {fileID: 1109958152}
+  spawnBonus: {fileID: 1084663330}
 --- !u!61 &923079618
 BoxCollider2D:
   m_ObjectHideFlags: 0
