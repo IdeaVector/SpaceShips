@@ -5,10 +5,16 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     public Transform shotPrefab;
+    public Transform rocketPrefab;
     public float shootingRate = 0.25f;
+    public float rocketRate = 2f;
     public bool isShotUp = true;
-    public bool isPlayer1; 
+    public bool isPlayer1;
+    public GameObject leftWeapon;
+    public GameObject rightWeapon;
+
     private float shootCooldown;
+    private float rocketCooldown;
     private int level = 0;
     private int maxLevel = 3;
     private delegate void AttackMode(bool isEnemy);
@@ -55,12 +61,8 @@ public class WeaponScript : MonoBehaviour
             var shotTransform2 = Instantiate(shotPrefab) as Transform;
 
             float angle = (Quaternion.Angle(transform.rotation, shotTransform2.rotation));
-            shotTransform1.position = transform.position;
-            //shotTransform1.position = new Vector3(transform.position.x - 0.2f * Mathf.Cos(90 - angle), transform.position.y - 0.2f * Mathf.Sin(90 - angle));
-            shotTransform2.position = new Vector3(transform.position.x + 0.2f*Mathf.Cos(90 - angle), transform.position.y + 0.2f * Mathf.Sin(90 - angle));
-            //print(angle);
-            //print(Mathf.Cos(90 - angle));
-            //print(Mathf.Sin(90 - angle));
+            shotTransform1.position = leftWeapon.transform.position;
+            shotTransform2.position = rightWeapon.transform.position;
             shotTransform2.rotation = transform.rotation;
             shotTransform1.rotation = transform.rotation;
 
@@ -91,6 +93,8 @@ public class WeaponScript : MonoBehaviour
 
     private void Attack3(bool isEnemy)
     {
+        Attack2(isEnemy);
+        RocketAttack(isEnemy);
     }
 
     void Start()
@@ -105,11 +109,26 @@ public class WeaponScript : MonoBehaviour
         {
             shootCooldown -= Time.deltaTime;
         }
+        if (rocketCooldown > 0)
+        {
+            rocketCooldown -= Time.deltaTime;
+        }
     }
     
     public void Attack(bool isEnemy)
     {
         currentAttack(isEnemy);
+    }
+
+    private void RocketAttack(bool isEnemy)
+    {
+        print("q");
+        if (rocketCooldown <= 0)
+        {
+            print("q2");
+            Instantiate(rocketPrefab, transform.position, Quaternion.identity);
+            rocketCooldown = rocketRate;
+        }
     }
 
 
@@ -129,7 +148,7 @@ public class WeaponScript : MonoBehaviour
             switch (level)
             {
                 case 1:
-                    currentAttack = Attack2;
+                    currentAttack = Attack1;
                     break;
                 case 2:
                     currentAttack = Attack2;

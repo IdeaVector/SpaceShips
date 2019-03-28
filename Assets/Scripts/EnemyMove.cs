@@ -12,7 +12,6 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Console.Write("Trigerred!");
         spaceBase = GameObject.FindWithTag("Base").transform;
     }
 

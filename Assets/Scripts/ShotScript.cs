@@ -11,13 +11,5 @@ public class ShotScript : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 3);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isPlayer1)
-           print("HUI");
     }
 }
