@@ -89,6 +89,7 @@ public class PlayerScrip : MonoBehaviour
 
     public void WeaponLevelUp()
     {
-
+        WeaponScript script = GetComponent<WeaponScript>();
+        script.LevelUp();
     }
 }
