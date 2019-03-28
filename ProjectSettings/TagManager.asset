@@ -6,6 +6,8 @@ TagManager:
   tags:
   - EnemySpawnArea
   - Base
+  - Enemy
+  - EnemyMoveBox
   layers:
   - Default
   - TransparentFX

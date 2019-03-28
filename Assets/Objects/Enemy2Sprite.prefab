@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8766795309370967940}
   - component: {fileID: 1586167669377245056}
-  - component: {fileID: 6248666138097100620}
+  - component: {fileID: 34640513397202759}
+  - component: {fileID: 3964599772403263002}
   - component: {fileID: 6637756148740306302}
   - component: {fileID: 3218777675167412649}
   - component: {fileID: 7104751459158741237}
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6248666138097100620
+--- !u!114 &34640513397202759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,11 +96,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7168493810721317995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfa308539a4b0384f96310fb7f32f3b6, type: 3}
+  m_Script: {fileID: 11500000, guid: f66e6629498417a4781b51eb3f8f7d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  smooth: 2
+  time: 8
+  rotationSpeed: 2
+--- !u!114 &3964599772403263002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168493810721317995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59f2da8184b63343b90a633ef181434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   damage: 3
 --- !u!114 &6637756148740306302
 MonoBehaviour:
@@ -115,6 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   isEnemy: 1
+  hpSprite: {fileID: 0}
 --- !u!114 &3218777675167412649
 MonoBehaviour:
   m_ObjectHideFlags: 0

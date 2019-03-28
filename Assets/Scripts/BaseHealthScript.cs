@@ -45,7 +45,7 @@ public class BaseHealthScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        EnemyMove enemy = otherCollider.gameObject.GetComponent<EnemyMove>();
+        EnemyDamage enemy = otherCollider.gameObject.GetComponent<EnemyDamage>();
         if (enemy != null)
         {
             Damage(enemy.damage);
