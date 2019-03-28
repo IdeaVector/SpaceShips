@@ -5,12 +5,15 @@ using UnityEngine;
 public class DualWeaponScript : MonoBehaviour
 {
     public Transform shotPrefab;
-    public float shootingRate = 0.25f;
+    public float shootingRate;
     public bool isShotUp = true;
     private float shootCooldown;
+    AudioSource sound;
 
     void Start()
     {
+        shootingRate = Random.Range(1.5f, 4.0f);
+        sound = GetComponent<AudioSource>();
         shootCooldown = 0f;
     }
 
@@ -26,6 +29,7 @@ public class DualWeaponScript : MonoBehaviour
     {
         if (CanAttack)
         {
+            sound.Play();
             shootCooldown = shootingRate;
 
             // Создайте новый выстрел

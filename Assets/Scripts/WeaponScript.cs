@@ -12,6 +12,7 @@ public class WeaponScript : MonoBehaviour
     public bool isPlayer1;
     public GameObject leftWeapon;
     public GameObject rightWeapon;
+    AudioSource sound;
 
     private float shootCooldown;
     private float rocketCooldown;
@@ -24,6 +25,7 @@ public class WeaponScript : MonoBehaviour
     {
         if (CanAttack)
         {
+            sound.Play();
             shootCooldown = shootingRate;
 
             var shotTransform = Instantiate(shotPrefab) as Transform;
@@ -55,6 +57,7 @@ public class WeaponScript : MonoBehaviour
     {
         if (CanAttack)
         {
+            sound.Play();
             shootCooldown = shootingRate;
 
             var shotTransform1 = Instantiate(shotPrefab) as Transform;
@@ -93,12 +96,18 @@ public class WeaponScript : MonoBehaviour
 
     private void Attack3(bool isEnemy)
     {
+        sound.Play();
         Attack2(isEnemy);
         RocketAttack(isEnemy);
     }
 
     void Start()
     {
+        if (shootingRate == 0)
+        {
+            shootingRate = Random.Range(1.5f, 4.0f);
+        }
+        sound = GetComponent<AudioSource>();
         LevelUp();
         shootCooldown = 0f;
     }
@@ -122,10 +131,8 @@ public class WeaponScript : MonoBehaviour
 
     private void RocketAttack(bool isEnemy)
     {
-        print("q");
         if (rocketCooldown <= 0)
         {
-            print("q2");
             Instantiate(rocketPrefab, transform.position, Quaternion.identity);
             rocketCooldown = rocketRate;
         }
