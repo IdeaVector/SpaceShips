@@ -8,7 +8,6 @@ public class EnemyMove : MonoBehaviour
     private Transform spaceBase;
     public float speed;
     public float smooth = 2.0F;
-    public  int damage = 1;
 
     // Start is called before the first frame update
     void Start()
