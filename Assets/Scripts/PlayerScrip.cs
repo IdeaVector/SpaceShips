@@ -86,4 +86,9 @@ public class PlayerScrip : MonoBehaviour
     {
         return transform.up * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.up);
     }
+
+    public void WeaponLevelUp()
+    {
+
+    }
 }
