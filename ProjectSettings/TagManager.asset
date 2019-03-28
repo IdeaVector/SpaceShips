@@ -8,6 +8,7 @@ TagManager:
   - Base
   - Enemy
   - EnemyMoveBox
+  - Bonus
   layers:
   - Default
   - TransparentFX

@@ -19,6 +19,7 @@ public class SpawnEnemy : MonoBehaviour
     private delegate void Level();
     private GameObject spawn = GameObject.FindGameObjectWithTag("EnemySpawnArea");
     Level currentLevel;
+    public GameObject spawnBonus;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +67,7 @@ public class SpawnEnemy : MonoBehaviour
     {
         levelScore++;
         PlayerPrefs.SetInt("level", levelScore);
+        spawnBonus.GetComponent<BonusSpawn>().spawnBonus();
         currentLevel();
     }
 
