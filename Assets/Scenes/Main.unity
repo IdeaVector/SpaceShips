@@ -805,7 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad9afe1af1af5a478551d159d0cb5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  hp: 8
   isEnemy: 0
   hpSprite: {fileID: 425199875}
 --- !u!114 &655001509
@@ -951,7 +951,7 @@ RectTransform:
   m_GameObject: {fileID: 834767362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.72, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1302174426}
   m_RootOrder: 0
@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 834767364}
   health: {fileID: 410166860}
-  hp: 10
+  hp: 15
 --- !u!50 &854717753
 Rigidbody2D:
   serializedVersion: 4
@@ -1924,7 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad9afe1af1af5a478551d159d0cb5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  hp: 8
   isEnemy: 0
   hpSprite: {fileID: 1880394345}
 --- !u!61 &1164683328
@@ -2279,7 +2279,7 @@ GameObject:
   - component: {fileID: 1644101983}
   m_Layer: 0
   m_Name: MoveBox
-  m_TagString: Untagged
+  m_TagString: EnemyMoveBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
