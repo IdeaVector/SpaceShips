@@ -13,18 +13,16 @@ public class SpawnEnemy : MonoBehaviour
     public Text levelText;
     public Text player1ScoreText;
     public Text player2ScoreText;
-    private int enemyCount;
     private int levelScore = 0;
     private int player1Score = 0;
     private int player2Score = 0;
     private delegate void Level();
-    private GameObject spawn;
+    private GameObject spawn = GameObject.FindGameObjectWithTag("EnemySpawnArea");
     Level currentLevel;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawn = GameObject.FindGameObjectWithTag("EnemySpawnArea");
         currentLevel = Level1;
         NextLevel();
         giveScore(true, 0);
@@ -35,8 +33,8 @@ public class SpawnEnemy : MonoBehaviour
     {
         GameObject spaceBase = GameObject.FindGameObjectWithTag("Base");
         BaseHealthScript baseHealth = spaceBase.GetComponent<BaseHealthScript>();
-        enemyCount--;
-        if (enemyCount <= 0 && baseHealth.hp > 0)
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        if (enemy == null && baseHealth.hp > 0)
         {
             NextLevel();
         }
@@ -92,9 +90,7 @@ public class SpawnEnemy : MonoBehaviour
     }
     void Level1()
     {
-        enemyCount = 2;
-
-        for (int i = 0; i < enemyCount; i ++)
+        for (int i = 0; i < 2; i ++)
         {
             Spawn(enemyPrefab);
         }
@@ -105,8 +101,6 @@ public class SpawnEnemy : MonoBehaviour
 
     void Level2()
     {
-        enemyCount = 4;
-
         for (int i = 0; i < 2; i++)
         {
             Spawn(enemyPrefab);
@@ -123,8 +117,6 @@ public class SpawnEnemy : MonoBehaviour
 
     void Level3()
     {
-        enemyCount = 6;
-
         for (int i = 0; i < 2; i++)
         {
             Spawn(enemyPrefab);
@@ -146,8 +138,6 @@ public class SpawnEnemy : MonoBehaviour
 
     void Level4()
     {
-        enemyCount = 6;
-
         for (int i = 0; i < 2; i++)
         {
             Spawn(enemy1Prefab);
