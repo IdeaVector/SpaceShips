@@ -92,6 +92,25 @@ public class PlayerScrip : MonoBehaviour
         WeaponScript script = GetComponent<WeaponScript>();
         script.LevelUp();
     }
-   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "BaseRegenBonus")
+        {
+            GameObject.FindGameObjectWithTag("Base").GetComponent<BaseHealthScript>().regen();
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.tag == "HealthBonus")
+        {
+            GetComponent<HealthScript>().regen();
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.tag == "LvlUpBonus")
+        {
+            WeaponLevelUp();
+        }
+    }
 
 }

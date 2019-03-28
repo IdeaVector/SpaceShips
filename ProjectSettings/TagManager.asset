@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - EnemyMoveBox
   - Bonus
+  - BaseRegenBonus
+  - HealthBonus
+  - LvlUpBonus
   layers:
   - Default
   - TransparentFX
