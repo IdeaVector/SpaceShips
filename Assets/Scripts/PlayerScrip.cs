@@ -110,6 +110,22 @@ public class PlayerScrip : MonoBehaviour
         if (collision.tag == "LvlUpBonus")
         {
             WeaponLevelUp();
+            Destroy(collision.gameObject);
+        }
+
+        
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "BlackHole")
+        {
+            Debug.Log("blackholetrigger");
+            Vector2 force = new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.y - transform.position.y);
+            transform.position = Vector2.MoveTowards(transform.position, collision.transform.position, Time.deltaTime * speed / 20);
+            //GetComponent<Rigidbody2D>().AddForce(force * Time.deltaTime * speed / 2);
+            //transform.position = Vector2.MoveTowards(transform.position, collision.transform.position, Time.deltaTime * speed / 10);
         }
     }
 

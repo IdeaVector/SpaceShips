@@ -5,6 +5,7 @@ using UnityEngine;
 public class BonusSpawn : MonoBehaviour
 {
     public GameObject[] bonuses;
+    public GameObject blckHolePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +30,13 @@ public class BonusSpawn : MonoBehaviour
         float randY = transform.position.y + Random.Range(-GetComponent<BoxCollider2D>().bounds.size.y / 2, GetComponent<BoxCollider2D>().bounds.size.y / 2);
         Vector2 bonusPosition = new Vector2(randX, randY);
         Instantiate(cr_bonus, bonusPosition, Quaternion.identity);
+    }
+
+    public void spqwnBlackHole()
+    {
+        float randX = Random.Range(-GetComponent<BoxCollider2D>().bounds.size.x / 2, GetComponent<BoxCollider2D>().bounds.size.x / 2);
+        float randY = transform.position.y + Random.Range(-GetComponent<BoxCollider2D>().bounds.size.y / 2, GetComponent<BoxCollider2D>().bounds.size.y / 2);
+        Vector2 bonusPosition = new Vector2(randX, randY);
+        Instantiate(blckHolePrefab, bonusPosition, Quaternion.identity);
     }
 }

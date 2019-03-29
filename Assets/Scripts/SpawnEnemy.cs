@@ -25,6 +25,7 @@ public class SpawnEnemy : MonoBehaviour
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("EnemySpawnArea");
+        spawnBonus.GetComponent<BonusSpawn>().spqwnBlackHole();
         currentLevel = Level1;
         NextLevel();
         giveScore(true, 0);

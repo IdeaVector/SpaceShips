@@ -12,6 +12,7 @@ TagManager:
   - BaseRegenBonus
   - HealthBonus
   - LvlUpBonus
+  - BlackHole
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BlackHole
+    uniqueID: 976495885
     locked: 0
   - name: Enemies
     uniqueID: 2666717917
